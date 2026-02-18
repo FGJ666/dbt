@@ -5,36 +5,36 @@ sources:
     schema: demo_src
     tables:
       - name: aircrafts
-        description: Самолеты
+        description: Справочник моделей воздушных судов.
         columns:
           - name: aircraft_code
-            description: тут описание
+            description: Трехсимвольный код модели самолета.
             tests:
               - not_null
               - unique
           - name: model
-            description: тут описание
+            description: Полное наименование модели самолета (на английском).
           - name: range
-            description: тут описание
+            description: Максимальная дальность полета в километрах.
       - name: airports
-        description: Аэропорты
+        description: Справочник аэропортов.
         columns:
           - name: airport_code
-            description: тут описание
+            description: Трехсимвольный код аэропорта (IATA).
           - name: airport_name
-            description: тут описание
+            description: Название аэропорта на английском языке.
           - name: city
-            description: тут описание
+            description: Город расположения аэропорта.
           - name: coordinates
-            description: тут описание
+            description: Географические координаты.
           - name: timezone
-            description: тут описание
+            description: Часовой пояс аэропорта.
       - name: seats
-        description: места в самолете
+        description: Конфигурация мест в самолетах.
         columns:
           - name: aircraft_code
-            description: тут описание
+            description: Ссылка на таблицу aircrafts.
           - name: seat_no
-            description: тут описание
+            description: Номер места в самолете.
           - name: fare_conditions
-            description: тут описание
+            description: Класс обслуживания (эконом, бизнес, комфорт).
