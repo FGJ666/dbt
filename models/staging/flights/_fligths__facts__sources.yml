@@ -1,0 +1,76 @@
+sources:
+  - name: demo_src
+    database: dwh_flight
+    schema: demo_src
+    tables:
+      - name: boarding_passes
+        description: Посадочные талоны, связывающие билеты с конкретными местами на рейсе
+        columns:
+          - name: ticket_no
+            description: Номер билета (13 символов)
+          - name: flight_id
+            description: Идентификатор рейса
+          - name: boarding_no
+            description: Номер посадки (последовательный номер)
+          - name: seat_no
+            description: Номер места в самолете
+
+      - name: flights
+        description: Расписание и фактическое выполнение рейсов
+        config:
+          freshness:
+            # error_after:
+            #   count: 2
+            #   period: day
+            warn_after:
+              count: 7
+              period: day
+          loaded_at_field: actual_departure::timestamp
+
+        columns:
+          - name: flight_id
+            description: Уникальный идентификатор рейса
+          - name: flight_no
+            description: Номер рейса (код авиакомпании + номер)
+          - name: scheduled_departure
+            description: Запланированное время вылета
+          - name: scheduled_arrival
+            description: Запланированное время прилета
+          - name: departure_airport
+            description: Код аэропорта вылета
+          - name: arrival_airport
+            description: Код аэропорта прилета
+          - name: status
+            description: Статус рейса (запланирован, вылетел, прилетел и т.д.)
+          - name: aircraft_code
+            description: Код типа воздушного судна
+          - name: actual_departure
+            description: Фактическое время вылета
+          - name: actual_arrival
+            description: Фактическое время прилета
+
+      - name: ticket_flights
+        description: Связь билетов с рейсами и тарифами (состав билета)
+        columns:
+          - name: ticket_no
+            description: Номер билета
+          - name: flight_id
+            description: Идентификатор рейса
+          - name: fare_conditions
+            description: Условия тарифа (эконом, бизнес, комфорт)
+          - name: amount
+            description: Стоимость перелета для данного сегмента
+
+      - name: tickets
+        description: Информация о приобретенных билетах и пассажирах
+        columns:
+          - name: ticket_no
+            description: Уникальный номер билета
+          - name: book_ref
+            description: Ссылка на бронирование (код брони)
+          - name: passenger_id
+            description: Идентификатор пассажира (если доступен)
+          - name: passenger_name
+            description: ФИО пассажира
+          - name: contact_data
+            description: Контактные данные (телефон, email) в формате JSON
