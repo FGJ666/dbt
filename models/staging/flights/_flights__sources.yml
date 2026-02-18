@@ -38,3 +38,22 @@ sources:
             description: Номер места в самолете.
           - name: fare_conditions
             description: Класс обслуживания (эконом, бизнес, комфорт).
+      - name: bookings
+        description: Бронирование рейсов
+
+        freshness:
+          # error_after:
+          #   count: 2
+          #   period: day
+          warn_after:
+            count: 3
+            period: day
+        loaded_at_field: book_date::timestamp
+
+        columns:
+          - name: book_ref
+            description: Уникальный код бронирования (6 символов).
+          - name: book_date
+            description: Дата и время оформления бронирования (timestamp with time zone).
+          - name: total_amount
+            description: Общая стоимость бронирования (numeric).
