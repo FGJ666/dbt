@@ -1,7 +1,3 @@
-{{ config(
-  materialized = 'table',
-) }}
-
 select
   aircraft_code,
   seat_no,
