@@ -291,7 +291,6 @@ dependencies = [
     { name = "dbt-postgres" },
     { name = "sqlfluff" },
     { name = "sqlfluff-templater-dbt" },
-    { name = "sqlfmt" },
 ]
 
 [package.metadata]
@@ -300,7 +299,6 @@ requires-dist = [
     { name = "dbt-postgres", specifier = ">=1.10.0" },
     { name = "sqlfluff", specifier = ">=4.0.4" },
     { name = "sqlfluff-templater-dbt", specifier = ">=4.0.4" },
-    { name = "sqlfmt", specifier = ">=0.0.2" },
 ]
 
 [[package]]
@@ -1044,18 +1042,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/cb/f0/28833e2bd771ae5e6778209eec9bac6a1362a36718b2c54c0694764f7c2d/sqlfluff_templater_dbt-4.0.4.tar.gz", hash = "sha256:4ce0a4feebd79b2903377050ecbc78b85af8dbce98259d688f930bc6686539aa", size = 15091, upload-time = "2026-02-09T00:09:52.72Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/52/8e/cc5d1947edffe5d5e6642f38ce27a14eda2821b1f30a7ce9168aed10679a/sqlfluff_templater_dbt-4.0.4-py3-none-any.whl", hash = "sha256:a402285fd0b7acf4d39b635bf4901f9fe31e08734c665fdb09c775a91c33bc27", size = 14760, upload-time = "2026-02-09T00:09:51.579Z" },
-]
-
-[[package]]
-name = "sqlfmt"
-version = "0.0.2"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "sqlfluff" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/1d/b6/54d9249944d3aa1bb1d36609f0ed1bf777bc6fb5e9203dab4f240e714c57/sqlfmt-0.0.2.tar.gz", hash = "sha256:05308d6e21a0c6bfb8af6e662670a19f86400837ccff142980bbc2df34257a9d", size = 2809, upload-time = "2021-11-25T18:11:44.228Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/a3/ba/3a808daf24b666297e9a8b6274ce70f38b6023b09e6d8ed9064e3c5305aa/sqlfmt-0.0.2-py3-none-any.whl", hash = "sha256:92a40c9c5c50a2fa4c39ea82046e9f697e82ad0bc2849cde3c25519badb08bd2", size = 3383, upload-time = "2021-11-25T18:11:43.047Z" },
 ]
 
 [[package]]

@@ -30,7 +30,7 @@ clean-targets: # directories to be removed by `dbt clean`
 models:
   dbt_stepik:
     staging:
-      +schema: staging # Принудительное указание схемы для папки staging
+      +schema: staging
       +materialized: view
     intermediate:
       +schema: intermediate

@@ -1,7 +1,7 @@
 select
     aircraft_code,
     model,
-    "range"
+    range
 from
     {{ source(
         'demo_src',

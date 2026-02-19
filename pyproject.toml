@@ -9,5 +9,4 @@ dependencies = [
     "dbt-postgres>=1.10.0",
     "sqlfluff>=4.0.4",
     "sqlfluff-templater-dbt>=4.0.4",
-    "sqlfmt>=0.0.2",
 ]
