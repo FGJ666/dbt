@@ -11,20 +11,28 @@ models:
         description: Номер билета
         constraints:
           - type: not_null
+        data_type: character
       - name: flight_id
         description: Идентификатор рейса
+        data_type: integer
       - name: fare_conditions
         description: Условия тарифа (эконом, бизнес, комфорт)
+        data_type: character varying
       - name: amount
         description: Стоимость перелета для данного сегмента
         constraints:
           - type: check
             expression: amount > 0
+        data_type: numeric
       - name: boarding_pass_exists
         description: yes or no посадочный талон у пассажира
+        data_type: text
       - name: boarding_no
         description: Номер билета, пустой без талона
+        data_type: character
       - name: seat_no
         description: Место в самолете, пусто если нет посадочного талона
+        data_type: character varying
       - name: load_date
         description: Дата загрузки
+        data_type: date

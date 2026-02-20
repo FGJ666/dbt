@@ -12,32 +12,43 @@ sources:
             tests:
               - not_null
               - unique
+            data_type: character
           - name: model
             description: Полное наименование модели самолета (на английском).
+            data_type: text
           - name: range
             description: Максимальная дальность полета в километрах.
+            data_type: integer
       - name: airports
         description: Справочник аэропортов.
         columns:
           - name: airport_code
             description: Трехсимвольный код аэропорта (IATA).
+            data_type: character
           - name: airport_name
             description: Название аэропорта на английском языке.
+            data_type: text
           - name: city
             description: Город расположения аэропорта.
+            data_type: text
           - name: coordinates
             description: Географические координаты.
+            data_type: point
           - name: timezone
             description: Часовой пояс аэропорта.
+            data_type: text
       - name: seats
         description: Конфигурация мест в самолетах.
         columns:
           - name: aircraft_code
             description: Ссылка на таблицу aircrafts.
+            data_type: character
           - name: seat_no
             description: Номер места в самолете.
+            data_type: character varying
           - name: fare_conditions
             description: Класс обслуживания (эконом, бизнес, комфорт).
+            data_type: character varying
       - name: bookings
         description: Бронирование рейсов
 
@@ -53,7 +64,10 @@ sources:
         columns:
           - name: book_ref
             description: Уникальный код бронирования (6 символов).
+            data_type: character
           - name: book_date
             description: Дата и время оформления бронирования (timestamp with time zone).
+            data_type: timestamp with time zone
           - name: total_amount
             description: Общая стоимость бронирования (numeric).
+            data_type: numeric

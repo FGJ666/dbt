@@ -8,12 +8,16 @@ sources:
         columns:
           - name: ticket_no
             description: Номер билета (13 символов)
+            data_type: character
           - name: flight_id
             description: Идентификатор рейса
+            data_type: integer
           - name: boarding_no
             description: Номер посадки (последовательный номер)
+            data_type: integer
           - name: seat_no
             description: Номер места в самолете
+            data_type: character varying
       - name: flights
         description: Расписание и фактическое выполнение рейсов
         config:
@@ -29,45 +33,64 @@ sources:
         columns:
           - name: flight_id
             description: Уникальный идентификатор рейса
+            data_type: integer
           - name: flight_no
             description: Номер рейса (код авиакомпании + номер)
+            data_type: character
           - name: scheduled_departure
             description: Запланированное время вылета
+            data_type: timestamp with time zone
           - name: scheduled_arrival
             description: Запланированное время прилета
+            data_type: timestamp with time zone
           - name: departure_airport
             description: Код аэропорта вылета
+            data_type: character
           - name: arrival_airport
             description: Код аэропорта прилета
+            data_type: character
           - name: status
             description: Статус рейса (запланирован, вылетел, прилетел и т.д.)
+            data_type: character varying
           - name: aircraft_code
             description: Код типа воздушного судна
+            data_type: character
           - name: actual_departure
             description: Фактическое время вылета
+            data_type: timestamp with time zone
           - name: actual_arrival
             description: Фактическое время прилета
+            data_type: timestamp with time zone
       - name: ticket_flights
         description: Связь билетов с рейсами и тарифами (состав билета)
         columns:
           - name: ticket_no
             description: Номер билета
+            data_type: character
           - name: flight_id
             description: Идентификатор рейса
+            data_type: integer
           - name: fare_conditions
             description: Условия тарифа (эконом, бизнес, комфорт)
+            data_type: character varying
           - name: amount
             description: Стоимость перелета для данного сегмента
+            data_type: numeric
       - name: tickets
         description: Информация о приобретенных билетах и пассажирах
         columns:
           - name: ticket_no
             description: Уникальный номер билета
+            data_type: character
           - name: book_ref
             description: Ссылка на бронирование (код брони)
+            data_type: character
           - name: passenger_id
             description: Идентификатор пассажира (если доступен)
+            data_type: character varying
           - name: passenger_name
             description: ФИО пассажира
+            data_type: text
           - name: contact_data
             description: Контактные данные (телефон, email) в формате JSON
+            data_type: jsonb
