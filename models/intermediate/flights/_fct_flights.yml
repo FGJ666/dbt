@@ -1,0 +1,33 @@
+version: 2
+models:
+  - name: fct_flights
+    columns:
+      - name: flight_id
+        description: Уникальный идентификатор рейса
+        data_type: integer
+      - name: flight_no
+        description: Номер рейса (код авиакомпании + номер)
+        data_type: character
+      - name: scheduled_departure
+        description: Запланированное время вылета
+        data_type: timestamp with time zone
+      - name: scheduled_arrival
+        description: Запланированное время прилета
+        data_type: timestamp with time zone
+      - name: departure_airport_id
+        data_type: character
+      - name: arrival_airport_id
+        data_type: character
+      - name: status
+        description: Статус рейса (запланирован, вылетел, прилетел и т.д.)
+        data_type: character varying
+      - name: aircraft_id
+        data_type: character
+      - name: actual_departure
+        description: Фактическое время вылета
+        data_type: timestamp with time zone
+      - name: actual_arrival
+        description: Фактическое время прилета
+        data_type: timestamp with time zone
+      - name: load_date
+        data_type: date

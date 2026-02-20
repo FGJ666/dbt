@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: stg_flights__aircrafts
+    columns:
+      - name: aircraft_code
+        description: Трехсимвольный код модели самолета.
+        data_type: character
+      - name: model
+        description: Полное наименование модели самолета (на английском).
+        data_type: text
+      - name: range
+        description: Максимальная дальность полета в километрах.
+        data_type: integer

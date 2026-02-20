@@ -2,7 +2,7 @@ models:
   - name: fct_ticket_flights
     description: Данные о полетах, посадочных талонах, местах в самолете
     meta:
-      owner: "myemail@gmail.com"
+      owner: myemail@gmail.com
     docs:
       show: true
       node_color: green
@@ -19,7 +19,7 @@ models:
         description: Стоимость перелета для данного сегмента
         constraints:
           - type: check
-            expression: "amount > 0"
+            expression: amount > 0
       - name: boarding_pass_exists
         description: yes or no посадочный талон у пассажира
       - name: boarding_no

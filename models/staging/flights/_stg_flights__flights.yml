@@ -1,0 +1,34 @@
+version: 2
+models:
+  - name: stg_flights__flights
+    columns:
+      - name: flight_id
+        description: Уникальный идентификатор рейса
+        data_type: integer
+      - name: flight_no
+        description: Номер рейса (код авиакомпании + номер)
+        data_type: character
+      - name: scheduled_departure
+        description: Запланированное время вылета
+        data_type: timestamp with time zone
+      - name: scheduled_arrival
+        description: Запланированное время прилета
+        data_type: timestamp with time zone
+      - name: departure_airport
+        description: Код аэропорта вылета
+        data_type: character
+      - name: arrival_airport
+        description: Код аэропорта прилета
+        data_type: character
+      - name: status
+        description: Статус рейса (запланирован, вылетел, прилетел и т.д.)
+        data_type: character varying
+      - name: aircraft_code
+        description: Код типа воздушного судна
+        data_type: character
+      - name: actual_departure
+        description: Фактическое время вылета
+        data_type: timestamp with time zone
+      - name: actual_arrival
+        description: Фактическое время прилета
+        data_type: timestamp with time zone

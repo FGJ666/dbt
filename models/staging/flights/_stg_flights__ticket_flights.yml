@@ -1,0 +1,16 @@
+version: 2
+models:
+  - name: stg_flights__ticket_flights
+    columns:
+      - name: ticket_no
+        description: Номер билета
+        data_type: character
+      - name: flight_id
+        description: Идентификатор рейса
+        data_type: integer
+      - name: fare_conditions
+        description: Условия тарифа (эконом, бизнес, комфорт)
+        data_type: character varying
+      - name: amount
+        description: Стоимость перелета для данного сегмента
+        data_type: numeric

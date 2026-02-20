@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: fct_tickets
+    columns:
+      - name: ticket_no
+        description: Уникальный номер билета
+        data_type: character
+      - name: book_ref
+        description: Ссылка на бронирование (код брони)
+        data_type: character
+      - name: passenger_id
+        description: Идентификатор пассажира (если доступен)
+        data_type: character varying
+      - name: passenger_name
+        description: ФИО пассажира
+        data_type: text
+      - name: contact_data
+        description: Контактные данные (телефон, email) в формате JSON
+        data_type: jsonb

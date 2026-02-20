@@ -1,0 +1,16 @@
+version: 2
+models:
+  - name: stg_flights__boarding_passes
+    columns:
+      - name: ticket_no
+        description: Номер билета (13 символов)
+        data_type: character
+      - name: flight_id
+        description: Идентификатор рейса
+        data_type: integer
+      - name: boarding_no
+        description: Номер посадки (последовательный номер)
+        data_type: integer
+      - name: seat_no
+        description: Номер места в самолете
+        data_type: character varying

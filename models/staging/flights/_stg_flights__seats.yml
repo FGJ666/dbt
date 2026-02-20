@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: stg_flights__seats
+    columns:
+      - name: aircraft_code
+        description: Ссылка на таблицу aircrafts.
+        data_type: character
+      - name: seat_no
+        description: Номер места в самолете.
+        data_type: character varying
+      - name: fare_conditions
+        description: Класс обслуживания (эконом, бизнес, комфорт).
+        data_type: character varying

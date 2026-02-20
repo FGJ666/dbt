@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: stg_flights__airports
+    columns:
+      - name: airport_code
+        description: Трехсимвольный код аэропорта (IATA).
+        data_type: character
+      - name: airport_name
+        description: Название аэропорта на английском языке.
+        data_type: text
+      - name: city
+        description: Город расположения аэропорта.
+        data_type: text
+      - name: coordinates
+        description: Географические координаты.
+        data_type: point
+      - name: timezone
+        description: Часовой пояс аэропорта.
+        data_type: text

@@ -29,12 +29,21 @@ clean-targets: # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_stepik:
+    +dbt-osmosis: "_{model}.yml"
+    # === STAGING ===
     staging:
       +schema: staging
       +materialized: view
+
+    # === INTERMEDIATE ===
     intermediate:
       +schema: intermediate
       +materialized: table
+
+    # === MARTS ===
     marts:
       +schema: marts
       +materialized: table
+seeds:
+  dbt_stepik:
+    +dbt-osmosis: "_schema.yml"
