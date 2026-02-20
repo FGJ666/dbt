@@ -14,7 +14,6 @@ sources:
             description: Номер посадки (последовательный номер)
           - name: seat_no
             description: Номер места в самолете
-
       - name: flights
         description: Расписание и фактическое выполнение рейсов
         config:
@@ -48,7 +47,6 @@ sources:
             description: Фактическое время вылета
           - name: actual_arrival
             description: Фактическое время прилета
-
       - name: ticket_flights
         description: Связь билетов с рейсами и тарифами (состав билета)
         columns:
@@ -60,7 +58,6 @@ sources:
             description: Условия тарифа (эконом, бизнес, комфорт)
           - name: amount
             description: Стоимость перелета для данного сегмента
-
       - name: tickets
         description: Информация о приобретенных билетах и пассажирах
         columns:

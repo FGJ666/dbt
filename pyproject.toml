@@ -6,7 +6,9 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "dbt-core>=1.11.5",
+    "dbt-osmosis>=1.2.2",
     "dbt-postgres>=1.10.0",
+    "openai>=2.21.0",
     "sqlfluff>=4.0.4",
     "sqlfluff-templater-dbt>=4.0.4",
 ]
