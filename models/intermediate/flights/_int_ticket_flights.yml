@@ -1,0 +1,30 @@
+models:
+  - name: fct_ticket_flights
+    description: Данные о полетах, посадочных талонах, местах в самолете
+    meta:
+      owner: "myemail@gmail.com"
+    docs:
+      show: true
+      node_color: green
+    columns:
+      - name: ticket_no
+        description: Номер билета
+        constraints:
+          - type: not_null
+      - name: flight_id
+        description: Идентификатор рейса
+      - name: fare_conditions
+        description: Условия тарифа (эконом, бизнес, комфорт)
+      - name: amount
+        description: Стоимость перелета для данного сегмента
+        constraints:
+          - type: check
+            expression: "amount > 0"
+      - name: boarding_pass_exists
+        description: yes or no посадочный талон у пассажира
+      - name: boarding_no
+        description: Номер билета, пустой без талона
+      - name: seat_no
+        description: Место в самолете, пусто если нет посадочного талона
+      - name: load_date
+        description: Дата загрузки

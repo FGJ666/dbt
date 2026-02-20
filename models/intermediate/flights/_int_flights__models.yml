@@ -1,0 +1,34 @@
+models:
+  - name: fct_bookings
+    description: Таблица бронирований
+    docs:
+      show: true
+      node_color: red
+    latest_version: 1
+    versions:
+      - v: 1
+    deprecation_date: 2200-01-01 00:00
+    access: public
+    config:
+      contract: { enforced: true }
+    meta:
+      owner: "my_email@gmail.com"
+      tg: "my_tg"
+
+    columns:
+      - name: book_ref
+        data_type: varchar(8)
+        description: Уникальный код бронирования (6 символов).
+        constraints:
+          - type: not_null
+      - name: book_date
+        data_type: timestamptz
+        description: Дата и время оформления бронирования (timestamp with time zone).
+      - name: total_amount
+        data_type: numeric(10, 2)
+        description: Общая стоимость бронирования (numeric).
+        constraints:
+          - type: check
+            expression: "total_amount > 0"
+        tests:
+          - not_null
