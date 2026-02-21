@@ -1,6 +1,5 @@
 models:
   - name: fct_ticket_flights
-    description: Данные о полетах, посадочных талонах, местах в самолете
     meta:
       owner: myemail@gmail.com
     docs:
@@ -8,7 +7,7 @@ models:
       node_color: green
     columns:
       - name: ticket_no
-        description: Номер билета
+        description: Номер билета (13 символов)
         constraints:
           - type: not_null
         data_type: character
@@ -28,10 +27,10 @@ models:
         description: yes or no посадочный талон у пассажира
         data_type: text
       - name: boarding_no
-        description: Номер билета, пустой без талона
+        description: Номер посадки (последовательный номер)
         data_type: character
       - name: seat_no
-        description: Место в самолете, пусто если нет посадочного талона
+        description: Номер места в самолете
         data_type: character varying
       - name: load_date
         description: Дата загрузки

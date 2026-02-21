@@ -1,7 +1,9 @@
 version: 2
 models:
   - name: fct_flights
-    description: Факт-таблица рейсов, содержащая информацию о каждом рейсе, включая запланированные и фактические времена вылета и прилета, а также статусы рейсов.
+    description: >-
+      Факт-таблица рейсов, содержащая информацию о каждом рейсе, включая запланированные и фактические
+      времена вылета и прилета, а также статусы рейсов.
     columns:
       - name: flight_id
         description: Уникальный идентификатор рейса
@@ -17,13 +19,16 @@ models:
         data_type: timestamp with time zone
       - name: departure_airport_id
         data_type: character
+        description: Код аэропорта вылета
       - name: arrival_airport_id
         data_type: character
+        description: Код аэропорта прилета.
       - name: status
         description: Статус рейса (запланирован, вылетел, прилетел и т.д.)
         data_type: character varying
       - name: aircraft_id
         data_type: character
+        description: Код типа воздушного судна, связанного с рейсом.
       - name: actual_departure
         description: Фактическое время вылета
         data_type: timestamp with time zone
@@ -32,3 +37,5 @@ models:
         data_type: timestamp with time zone
       - name: load_date
         data_type: date
+        description: Дата загрузки данных в таблицу, указывающая на момент, когда строки были 
+          добавлены.

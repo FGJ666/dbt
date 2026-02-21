@@ -1,7 +1,6 @@
 version: 2
 models:
   - name: stg_flights__seats
-    description: описание
     columns:
       - name: aircraft_code
         description: Ссылка на таблицу aircrafts.

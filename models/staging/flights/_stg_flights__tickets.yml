@@ -1,7 +1,6 @@
 version: 2
 models:
   - name: stg_flights__tickets
-    description: Информация о приобретенных билетах и пассажирах
     columns:
       - name: ticket_no
         description: Уникальный номер билета

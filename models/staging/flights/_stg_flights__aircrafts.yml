@@ -1,7 +1,6 @@
 version: 2
 models:
   - name: stg_flights__aircrafts
-    description: описание
     columns:
       - name: aircraft_code
         description: Трехсимвольный код модели самолета.
