@@ -35,3 +35,7 @@ models:
       - name: load_date
         description: Дата загрузки
         data_type: date
+    description: >-
+      The table contains ticket flight information, including ticket number, flight ID, fare conditions,
+      and amount for each segment of the journey. It also links tickets to specific seats on flights through
+      the `boarding_pass_exists` flag and boarding pass details.

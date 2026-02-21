@@ -17,3 +17,7 @@ models:
       - name: contact_data
         description: Контактные данные (телефон, email) в формате JSON
         data_type: jsonb
+    description: >-
+      This table contains information about booked tickets and passengers, including ticket numbers, booking
+      references, passenger IDs (if available), passenger names, and contact data. The contact information
+      is stored in JSON format for flexibility and ease of handling.

@@ -11,3 +11,6 @@ models:
       - name: range
         description: Максимальная дальность полета в километрах.
         data_type: integer
+    description: >-
+      **Description**: Staging table containing aircraft information, including their code, model name,
+      and maximum range in kilometers.

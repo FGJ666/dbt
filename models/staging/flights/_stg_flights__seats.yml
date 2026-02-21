@@ -11,3 +11,6 @@ models:
       - name: fare_conditions
         description: Класс обслуживания (эконом, бизнес, комфорт).
         data_type: character varying
+    description: >-
+      The `stg_flights__seats` table contains seat information for flights, including aircraft code, seat
+      number, and fare conditions.

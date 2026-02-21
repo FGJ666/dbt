@@ -14,3 +14,7 @@ models:
       - name: seat_no
         description: Номер места в самолете
         data_type: character varying
+    description: >-
+      This stage table contains boarding pass information, linking tickets to specific seats on flights.
+      It includes columns for the ticket number, flight identifier, boarding sequence number, and seat
+      number.

@@ -17,3 +17,5 @@ models:
       - name: timezone
         description: Часовой пояс аэропорта.
         data_type: text
+    description: >-
+      A table containing airport information, including codes, names, cities, coordinates, and time zones.

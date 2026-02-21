@@ -11,3 +11,6 @@ models:
       - name: total_amount
         description: Общая стоимость бронирования (numeric).
         data_type: numeric
+    description: >-
+      The table "dwh_flight"."flights_staging"."stg_flights__bookings" contains booking records with columns
+      for unique booking reference, booking date and time, and total booking amount.

@@ -32,3 +32,6 @@ models:
       - name: actual_arrival
         description: Фактическое время прилета
         data_type: timestamp with time zone
+    description: >-
+      This table contains flight information with scheduled and actual departure and arrival times, along
+      with airport codes and aircraft types.

@@ -14,3 +14,6 @@ models:
       - name: amount
         description: Стоимость перелета для данного сегмента
         data_type: numeric
+    description: >-
+      The table contains ticket flight information, including ticket number, flight ID, fare conditions,
+      and amount for each segment of the journey.
