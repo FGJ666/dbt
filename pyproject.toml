@@ -8,6 +8,7 @@ dependencies = [
     "dbt-core>=1.11.5",
     "dbt-osmosis>=1.2.2",
     "dbt-postgres>=1.10.0",
+    "elementary-data>=0.22.0",
     "openai>=2.21.0",
     "pre-commit>=4.5.1",
     "sqlfluff>=4.0.4",

@@ -49,6 +49,10 @@ models:
     marts:
       +schema: marts
       +materialized: table
+    # === elementary ===
+    elementary:
+      +schema: elementary # Таблицы пакета будут созданы в схеме flights_elementary
+      +materialized: table
 seeds:
   dbt_stepik:
     +dbt-osmosis: "_schema.yml"
