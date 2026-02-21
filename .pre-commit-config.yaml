@@ -1,0 +1,22 @@
+repos:
+  - repo: https://github.com/dbt-checkpoint/dbt-checkpoint
+    rev: v2.0.8 # Проверьте актуальную версию на GitHub
+    hooks:
+      - id: dbt-parse
+      - id: dbt-osmosis yaml refactor
+      - id: dbt-docs-generate
+        args: ["--cmd-flags", "++no-compile"]
+      # Проверка синтаксиса SQL
+      - id: check-script-has-no-table-name
+      # Проверка наличия описаний в моделях
+      - id: check-model-has-description
+
+      - id: check-script-semicolon
+      - id: check-model-has-all-columns
+      # Проверка наличия уникальных ключей
+      - id: check-model-has-meta-keys
+        args: ["--meta-keys", '["owner", "tags"]']
+      # Проверка, что все колонки задокументированы
+      - id: check-column-desc-are-same
+      # Запрет SELECT *
+      - id: check-script-ref-and-source

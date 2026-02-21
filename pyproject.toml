@@ -9,6 +9,7 @@ dependencies = [
     "dbt-osmosis>=1.2.2",
     "dbt-postgres>=1.10.0",
     "openai>=2.21.0",
+    "pre-commit>=4.5.1",
     "sqlfluff>=4.0.4",
     "sqlfluff-templater-dbt>=4.0.4",
 ]
