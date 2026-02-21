@@ -34,11 +34,16 @@ models:
     staging:
       +schema: staging
       +materialized: view
+      # +dbt-osmosis: "{parent}.yml"
+      +dbt-osmosis-options:
+        +numeric-precision-and-scale: false
+        +output-to-lower: true
 
     # === INTERMEDIATE ===
     intermediate:
       +schema: intermediate
       +materialized: table
+      # +dbt-osmosis: "{node.resource_type}__{model}.yml"
 
     # === MARTS ===
     marts:

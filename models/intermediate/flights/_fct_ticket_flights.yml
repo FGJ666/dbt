@@ -1,3 +1,4 @@
+version: 2
 models:
   - name: fct_ticket_flights
     meta:
@@ -36,6 +37,5 @@ models:
         description: Дата загрузки
         data_type: date
     description: >-
-      The table contains ticket flight information, including ticket number, flight ID, fare conditions,
-      and amount for each segment of the journey. It also links tickets to specific seats on flights through
-      the `boarding_pass_exists` flag and boarding pass details.
+      Contains intermediate data on ticket flights, including ticket number, flight ID, fare conditions,
+      amount, boarding pass existence details, and seat assignments.
