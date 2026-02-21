@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: stg_flights__bookings
+    description: описание
     columns:
       - name: book_ref
         description: Уникальный код бронирования (6 символов).

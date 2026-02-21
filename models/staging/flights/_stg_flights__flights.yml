@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: stg_flights__flights
+    description: описание таблицы
     columns:
       - name: flight_id
         description: Уникальный идентификатор рейса

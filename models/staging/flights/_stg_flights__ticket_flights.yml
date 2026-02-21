@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: stg_flights__ticket_flights
+    description: описание
     columns:
       - name: ticket_no
         description: Номер билета

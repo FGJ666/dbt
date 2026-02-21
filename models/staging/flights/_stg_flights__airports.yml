@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: stg_flights__airports
+    description: описание
     columns:
       - name: airport_code
         description: Трехсимвольный код аэропорта (IATA).

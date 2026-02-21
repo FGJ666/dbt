@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: fct_tickets
+    description: Описание
     columns:
       - name: ticket_no
         description: Уникальный номер билета

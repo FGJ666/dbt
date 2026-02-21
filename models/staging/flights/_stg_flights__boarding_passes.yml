@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: stg_flights__boarding_passes
+    description: описание
     columns:
       - name: ticket_no
         description: Номер билета (13 символов)
