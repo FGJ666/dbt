@@ -49,17 +49,15 @@ models:
     marts:
       +schema: marts
       +materialized: table
-    # === elementary ===
-    elementary:
-      +schema: elementary # Таблицы пакета будут созданы в схеме flights_elementary
+
+  # === elementary ===
+  elementary:
+    +tags: elementary
+    +schema: elementary # Таблицы пакета будут созданы в схеме flights_elementary
 
 seeds:
   dbt_stepik:
     +dbt-osmosis: "_schema.yml"
+
 vars:
-  elementary:
-    # Схема, где будут храниться таблицы метаданных elementary
-    schema: elementary
-    # Если используешь Elementary Cloud, включи отправку артефактов
-    reports:
-      should_upload_artifacts: true # Или false, если только self-hosted DB
+  should_upload_artifacts: true # Или false, если только self-hosted DB
