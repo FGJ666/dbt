@@ -1,3 +1,7 @@
+{{ config(
+  tags = ['bookings']
+) }}
+
 select
     book_ref,
     book_date,

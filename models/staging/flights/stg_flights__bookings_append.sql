@@ -1,12 +1,13 @@
 {{ config(
   materialized = 'incremental',
-  incremental_strategy = 'append'
+  incremental_strategy = 'append',
+  tags = ['bookings']
 ) }}
 
 select
-    book_ref,
-    book_date,
-    total_amount
+  book_ref,
+  book_date,
+  total_amount
 from
   {{ source(
     'demo_src',
@@ -14,10 +15,13 @@ from
   ) }}
 
 {% if is_incremental() %}
-    where
-        book_ref > (
-            select max(book_ref)
-            from
-                {{ this }}
-        )
+where
+  (
+    '0x' || book_ref
+  ) :: bigint > (
+    SELECT
+      MAX(('0x' || book_ref) :: bigint)
+    FROM
+      {{ this }}
+  )
 {% endif %}
