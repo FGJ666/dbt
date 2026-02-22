@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: stg_flights__bookings
+  - name: stg_flights__bookings_append
     columns:
       - name: book_ref
         description: Уникальный код бронирования (6 символов).
@@ -12,5 +12,6 @@ models:
         description: Общая стоимость бронирования (numeric).
         data_type: numeric
     description: >-
-      The table "dwh_flight"."flights_staging"."stg_flights__bookings" contains booking records with columns
-      for unique booking reference, booking date and time, and total booking amount.
+      **Description**: This model selects and provides a subset of the data from the "flights_staging__bookings_append"
+      table, including booking references, dates, and total amounts. The upstream documentation provides
+      definitions for these fields.

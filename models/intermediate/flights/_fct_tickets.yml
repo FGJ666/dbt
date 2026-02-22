@@ -7,7 +7,7 @@ models:
         data_type: character
       - name: book_ref
         description: Ссылка на бронирование (код брони)
-        data_type: character
+        data_type: character varying
       - name: passenger_id
         description: Идентификатор пассажира (если доступен)
         data_type: character varying

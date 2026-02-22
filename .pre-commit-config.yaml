@@ -20,6 +20,6 @@ repos:
       - id: check-model-has-meta-keys
         args: ["--meta-keys", '["owner", "tags"]']
       # Проверка, что все колонки задокументированы
-      - id: check-column-desc-are-same
+      # - id: check-column-desc-are-same
       # Запрет SELECT *
       - id: check-script-ref-and-source

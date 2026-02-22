@@ -24,15 +24,15 @@ models:
           - type: check
             expression: amount > 0
         data_type: numeric
-      - name: boarding_pass_exists
-        data_type: text
-        description: Indicates whether a boarding pass was issued for this ticket flight segment.
       - name: boarding_no
         description: Номер посадки (последовательный номер)
         data_type: character
       - name: seat_no
         description: Номер места в самолете
         data_type: character varying
+      - name: boarding_pass_exists
+        data_type: text
+        description: Indicates whether a boarding pass was issued for this ticket flight segment.
       - name: load_date
         data_type: date
         description: The date when the ticket flight information was loaded into the table.

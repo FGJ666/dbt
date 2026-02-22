@@ -64,7 +64,7 @@ sources:
         columns:
           - name: book_ref
             description: Уникальный код бронирования (6 символов).
-            data_type: character
+            data_type: character varying
           - name: book_date
             description: Дата и время оформления бронирования (timestamp with time zone).
             data_type: timestamp with time zone

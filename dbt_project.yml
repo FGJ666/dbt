@@ -33,7 +33,7 @@ models:
     # === STAGING ===
     staging:
       +schema: staging
-      +materialized: view
+      +materialized: table
       # +dbt-osmosis: "{parent}.yml"
       +dbt-osmosis-options:
         +numeric-precision-and-scale: false
@@ -52,7 +52,14 @@ models:
     # === elementary ===
     elementary:
       +schema: elementary # Таблицы пакета будут созданы в схеме flights_elementary
-      +materialized: table
+
 seeds:
   dbt_stepik:
     +dbt-osmosis: "_schema.yml"
+vars:
+  elementary:
+    # Схема, где будут храниться таблицы метаданных elementary
+    schema: elementary
+    # Если используешь Elementary Cloud, включи отправку артефактов
+    reports:
+      should_upload_artifacts: true # Или false, если только self-hosted DB
