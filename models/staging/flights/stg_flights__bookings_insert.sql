@@ -2,7 +2,7 @@
   materialized = 'incremental',
   incremental_strategy = 'delete+insert',
   unique_key = ['book_ref'],
-  tags = ['bookings']
+  tags = ['bookings', 'incremental']
 ) }}
 
 select

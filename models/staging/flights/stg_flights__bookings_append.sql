@@ -1,7 +1,7 @@
 {{ config(
   materialized = 'incremental',
   incremental_strategy = 'append',
-  tags = ['bookings']
+  tags = ['bookings', 'incremental']
 ) }}
 
 select
