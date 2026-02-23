@@ -1,5 +1,8 @@
 {{ config(
-  materialized = 'table',
+  materialized = 'incremental',
+  incremental_strategy = 'merge',
+  uniq_key = ['flight_id', 'flight_no'],
+  tags = ['incremental', 'flights']
 ) }}
 
 select
@@ -18,3 +21,12 @@ from
     'demo_src',
     'flights'
   ) }}
+where
+    scheduled_departure >= (
+        select max(scheduled_departure)
+        from
+      {{ source(
+        'demo_src',
+        'flights'
+      ) }}
+    ) - interval '100 day'
