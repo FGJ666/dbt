@@ -5,9 +5,9 @@
 ) }}
 
 select
-  book_ref,
-  book_date,
-  total_amount
+    book_ref,
+    book_date,
+    total_amount
 from
   {{ source(
     'demo_src',
@@ -15,13 +15,12 @@ from
   ) }}
 
 {% if is_incremental() %}
-where
-  (
-    '0x' || book_ref
-  ) :: bigint > (
-    SELECT
-      MAX(('0x' || book_ref) :: bigint)
-    FROM
-      {{ this }}
-  )
+    where
+        (
+            '0x' || book_ref
+        )::bigint > (
+            select MAX(('0x' || book_ref)::bigint)
+            from
+                {{ this }}
+        )
 {% endif %}
