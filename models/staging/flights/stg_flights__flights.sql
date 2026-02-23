@@ -22,11 +22,8 @@ from
     'flights'
   ) }}
 where
-    scheduled_departure >= (
+    scheduled_departure > (
         select max(scheduled_departure)
         from
-      {{ source(
-        'demo_src',
-        'flights'
-      ) }}
+            {{ this }}
     ) - interval '100 day'
