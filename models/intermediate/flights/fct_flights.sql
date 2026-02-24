@@ -1,7 +1,3 @@
-{{ config(
-    materialized = 'table',
-) }}
-
 select
     flight_id,
     flight_no,
