@@ -57,7 +57,8 @@ models:
 
 seeds:
   dbt_stepik:
-    +dbt-osmosis: "_schema.yml"
+    +dbt-osmosis: "_dict__{model}.yml"
+  +schema: seeds
 
 vars:
   should_upload_artifacts: true # Или false, если только self-hosted DB

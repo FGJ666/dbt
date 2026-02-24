@@ -18,6 +18,6 @@ models:
         description: Контактные данные (телефон, email) в формате JSON
         data_type: jsonb
     description: >-
-      **Description:** The table contains information about booked tickets and passengers, including ticket
-      numbers, booking references, passenger IDs (if available), passenger names, and contact data. The
-      contact information is stored in JSON format for flexibility and ease of handling.
+      The SQL table "dwh_flight"."flights_intermediate"."fct_tickets" contains ticket-level information
+      such as ticket numbers, booking references, passenger IDs (if available), passenger names, and contact
+      data. The contact information is stored in JSON format for flexibility and ease of handling.

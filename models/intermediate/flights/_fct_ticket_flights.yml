@@ -1,16 +1,11 @@
 version: 2
 models:
   - name: fct_ticket_flights
-    meta:
-      owner: myemail@gmail.com
-    docs:
-      show: true
-      node_color: green
     columns:
       - name: ticket_no
-        description: Номер билета (13 символов)
         constraints:
           - type: not_null
+        description: Номер билета (13 символов)
         data_type: character
       - name: flight_id
         description: Идентификатор рейса
@@ -19,10 +14,10 @@ models:
         description: Условия тарифа (эконом, бизнес, комфорт)
         data_type: character varying
       - name: amount
-        description: Стоимость перелета для данного сегмента
         constraints:
           - type: check
             expression: amount > 0
+        description: Стоимость перелета для данного сегмента
         data_type: numeric
       - name: boarding_no
         description: Номер посадки (последовательный номер)
@@ -31,12 +26,15 @@ models:
         description: Номер места в самолете
         data_type: character varying
       - name: boarding_pass_exists
+        description: >-
+          The column `boarding_pass_exists` indicates whether boarding passes are available for each ticket
+          flight in the `flights_intermediate.fct_ticket_flights` table.
         data_type: text
-        description: Indicates whether a boarding pass was issued for this ticket flight segment.
       - name: load_date
+        description: >-
+          The `load_date` column represents the date at which the flight information was loaded into the
+          system.
         data_type: date
-        description: The date when the ticket flight information was loaded into the table.
     description: >-
-      This table contains ticket flight information, including a record of each segment of a journey with
-      details such as the ticket number, associated flight ID, fare conditions, and amount. It is linked
-      to boarding pass information by ticket number and flight identifier.
+      The table contains ticket flight information, including ticket number, flight ID, fare conditions,
+      and amount for each segment of the journey.
