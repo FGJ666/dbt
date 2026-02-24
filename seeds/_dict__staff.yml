@@ -1,0 +1,20 @@
+version: 2
+seeds:
+  - name: staff
+    config:
+      quote_columns: true
+    columns:
+      - name: passenger_id
+        description: The passenger_id column stores the unique identifier for each staff member.
+        data_type: text
+        tests:
+          - not_null
+          - unique
+      - name: passenger_name
+        description: >-
+          The `passenger_name` column in the `staff` table contains the names of the staff members working
+          for the airline.
+        data_type: text
+    description: >-
+      The `staff` table in the `dwh_flight` schema contains information about the staff members working
+      for the airline, including their passenger IDs and names.
