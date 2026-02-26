@@ -3,6 +3,8 @@ models:
   - name: stg_flights__aircrafts
     columns:
       - name: aircraft_code
+        tests:
+          - unique
         description: Трехсимвольный код модели самолета.
         data_type: character
       - name: model

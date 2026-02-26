@@ -41,7 +41,7 @@ sources:
         description: Конфигурация мест в самолетах.
         columns:
           - name: aircraft_code
-            description: Ссылка на таблицу aircrafts.
+            description: Трехсимвольный код модели самолета.
             data_type: character
           - name: seat_no
             description: Номер места в самолете.

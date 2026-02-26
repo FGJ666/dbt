@@ -1,0 +1,35 @@
+version: 2
+snapshots:
+  - name: snap_flights__aircrafts
+    description: Схема данных для отслеживания информации о самолетах.
+    #---------columns---------#
+    columns:
+      - name: aircraft_code
+        description: Трехсимвольный код модели самолета.
+      - name: model
+        description: Полное наименование модели самолета (на английском).
+      - name: range
+        description: Максимальная дальность полета в километрах.
+      #---------Поля создаваемые dbt---------#
+      - name: scd_id
+        description: Уникальный идентификатор схемы данных.
+        tests:
+          - not_null
+      - name: updated_at
+        description: Дата обновления записи.
+        tests:
+          - not_null
+      - name: start_date
+        description: Дата начала действия записи.
+        tests:
+          - not_null
+      - name: end_date
+        description: Дата окончания действия записи.
+        tests:
+          - not_null
+    #---------config---------#
+    relation: ref("stg_flights__aircrafts")
+    config:
+      strategy: check
+      unique_key: [aircraft_code, model, range]
+      check_cols: [aircraft_code, model, range]

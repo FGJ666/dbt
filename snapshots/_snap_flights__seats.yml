@@ -1,0 +1,35 @@
+version: 2
+snapshots:
+  - name: snap_flights__seats
+    description: Схема данных для отслеживания информации о местах в самолетах.
+    #---------columns---------#
+    columns:
+      - name: aircraft_code
+        description: Трехсимвольный код модели самолета.
+      - name: seat_no
+        description: Номер места в самолете.
+      - name: fare_conditions
+        description: Класс обслуживания (эконом, бизнес, комфорт).
+      #---------Поля создаваемые dbt---------#
+      - name: scd_id
+        description: Уникальный идентификатор схемы данных.
+        tests:
+          - not_null
+      - name: updated_at
+        description: Дата обновления записи.
+        tests:
+          - not_null
+      - name: start_date
+        description: Дата начала действия записи.
+        tests:
+          - not_null
+      - name: end_date
+        description: Дата окончания действия записи.
+        tests:
+          - not_null
+    #---------config---------#
+    relation: ref("stg_flights__seats")
+    config:
+      strategy: check
+      unique_key: [aircraft_code, seat_no]
+      check_cols: [aircraft_code, seat_no, fare_conditions]

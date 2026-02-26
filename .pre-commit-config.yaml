@@ -13,7 +13,7 @@ repos:
       - id: check-script-has-no-table-name
       # Проверка наличия описаний в моделях
       - id: check-model-has-description
-
+        args: ["--exclude", "snapshots/*"]
       - id: check-script-semicolon
       # - id: check-model-has-all-columns
       # Проверка наличия уникальных ключей

@@ -30,7 +30,7 @@ clean-targets: # directories to be removed by `dbt clean`
 models:
   dbt_stepik:
     +dbt-osmosis: "_{model}.yml"
-    # === STAGING ===
+    # === staging ===
     staging:
       +schema: staging
       +materialized: view
@@ -45,7 +45,7 @@ models:
       +materialized: view
       # +dbt-osmosis: "{node.resource_type}__{model}.yml"
 
-    # === MARTS ===
+    # === marts ===
     marts:
       +schema: marts
       +materialized: view
@@ -54,11 +54,27 @@ models:
   elementary:
     +tags: elementary
     +schema: elementary # Таблицы пакета будут созданы в схеме flights_elementary
-
-seeds:
-  dbt_stepik:
-    +dbt-osmosis: "_dict__{model}.yml"
-  +schema: seeds
-
 vars:
   should_upload_artifacts: true # Или false, если только self-hosted DB
+
+# ====Конфигурирование seeds====
+seeds:
+  dbt_stepik:
+    +dbt-osmosis: "_seed__{model}.yml"
+    +schema: seeds
+
+# ====Конфигурирование snapshots====
+snapshots:
+  dbt_stepik:
+    +dbt-osmosis: "_{model}.yml"
+
+    +schema: snapshot
+    +strategy: timestamp
+    +snapshot_meta_column_names:
+      dbt_valid_from: start_date
+      dbt_valid_to: end_date
+      dbt_updated_at: updated_at
+      dbt_is_deleted: is_deleted
+      dbt_scd_id: scd_id
+    +dbt_valid_to_current: "'9999-12-31'::date"
+    +hard_deletes: invalidate
