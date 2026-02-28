@@ -23,17 +23,26 @@ clean-targets: # directories to be removed by `dbt clean`
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_stepik:
-    +dbt-osmosis: "_{model}.yml"
+    # === configs ===
+    +meta:
+      owner: "my_email@example.com"
+      year_created: 2026
+    +persist_docs:
+      relation: true
+      columns: true
+    +dbt-osmosis: "_{model}.yml" # Определяет имя файла, в котором будет храниться описательная информация о модели
+    +dbt-osmosis-options:
+      +numeric-precision-and-scale: false
+      +output-to-lower: true
+
     # === staging ===
     staging:
       +schema: staging
       +materialized: view
+      +tags: staging
       # +dbt-osmosis: "{parent}.yml"
       +dbt-osmosis-options:
         +numeric-precision-and-scale: false
@@ -43,31 +52,35 @@ models:
     intermediate:
       +schema: intermediate
       +materialized: view
+      +tags: intermediate
       # +dbt-osmosis: "{node.resource_type}__{model}.yml"
 
     # === marts ===
     marts:
       +schema: marts
       +materialized: view
+      +tags: marts
+      # +dbt-osmosis: "{parent}.yml"
 
   # === elementary ===
   elementary:
     +tags: elementary
     +schema: elementary # Таблицы пакета будут созданы в схеме flights_elementary
-vars:
-  should_upload_artifacts: true # Или false, если только self-hosted DB
+    vars:
+      should_upload_artifacts: true # Или false, если только self-hosted DB
 
 # ====Конфигурирование seeds====
 seeds:
+  +tags: seeds
   dbt_stepik:
     +dbt-osmosis: "_seed__{model}.yml"
     +schema: seeds
 
 # ====Конфигурирование snapshots====
 snapshots:
+  +tags: snapshots
   dbt_stepik:
     +dbt-osmosis: "_{model}.yml"
-
     +schema: snapshot
     +strategy: timestamp
     +snapshot_meta_column_names:
