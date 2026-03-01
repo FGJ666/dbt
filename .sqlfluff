@@ -3,7 +3,8 @@ exclude_rules = L057
 max_line_length = 120
 templater = dbt
 dialect = postgres
+paths = models/, analyses/, seeds/, snapshots/
 
 # Игнорирование служебных директорий
 [sqlfluff:core]
-exclude_directories = target, logs, dbt_packages
+exclude_directories = target, logs, dbt_packages, macros, dbt_packages
