@@ -4,3 +4,4 @@ logs/
 .vscode/
 .api
 edr_target/
+.env
