@@ -3,6 +3,10 @@ models:
     description: >-
       The `fct_bookings` table in the `dwh_flight`.`flights_intermediate` schema contains booking records
       with columns for unique booking reference, booking date and time, and total booking amount.
+    tests:
+      - elementary.all_columns_anomalies:
+          # timestamp_column: loaded_at
+          column_anomalies: [null_count, missing_count, zero_count]
     columns:
       - name: book_ref
         description: Уникальный код бронирования (6 символов).
@@ -10,7 +14,7 @@ models:
         constraints:
           - type: not_null
             warn_unenforced: true
-            warn_unsupported: true
+            warn_unsupported: false
             to_columns: []
       - name: book_date
         description: Дата и время оформления бронирования (timestamp with time zone).
@@ -22,7 +26,7 @@ models:
           - type: check
             expression: total_amount > 0
             warn_unenforced: true
-            warn_unsupported: true
+            warn_unsupported: false
             to_columns: []
 
     # config:
