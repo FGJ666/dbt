@@ -11,6 +11,10 @@
 - Получить первые 10 символов строки в jinja можно с помощью фильтра truncate(10, True, "") #}
 
 
-select count(*) as count_flights
+select 
+    date(scheduled_departure) as date_departure,
+    count(*) as count_flights
 from {{ ref('fct_flights') }}
 where scheduled_departure >= '{{ run_started_at | string | truncate(10, True, '') }}'::date
+group by date_departure
+order by date_departure;
