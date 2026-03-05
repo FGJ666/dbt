@@ -6,7 +6,7 @@ select
     ) as seat_count
 from
     {{ ref('stg_flights__seats') }} as seats
-    inner join {{ ref('stg_flights__aircrafts') }} as aircrafts
+inner join {{ ref('stg_flights__aircrafts') }} as aircrafts
     on seats.aircraft_code = aircrafts.aircraft_code
 group by
     aircrafts.aircraft_code,

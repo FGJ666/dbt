@@ -3,17 +3,17 @@
 ) }}
 
 select
-  ticket_no,
-  flight_id,
-  fare_conditions,
-  amount
+    ticket_no,
+    flight_id,
+    fare_conditions,
+    amount
 from
   {{ source(
     'demo_src',
     'ticket_flights'
   ) }}
 
-  {%- if target.name == 'dev' %}
-  limit
-    10000
-  {%- endif %}
+{%- if target.name == 'dev' %}
+    limit
+        100000
+{%- endif %}
