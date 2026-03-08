@@ -25,7 +25,6 @@
 
 {% set curr_dt = "{{ run_started_at | string | truncate(10, True, '') }}" %}
 
-select 
-    count(*) as flights_count
+select count(*) as flights_count
 from {{ ref('fct_flights') }}
-where scheduled_departure between '{{curr_dt}}'::date - interval '10' year and '{{curr_dt}}'
+where scheduled_departure between '{{ curr_dt }}'::date - interval '10' year and '{{ curr_dt }}'

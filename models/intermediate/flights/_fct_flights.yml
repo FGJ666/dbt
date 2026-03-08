@@ -26,9 +26,8 @@ models:
       - name: status
         description: Статус рейса (запланирован, вылетел, прилетел и т.д.)
         data_type: character varying
-      - name: aircraft_id
-        description: >-
-          A unique identifier for each flight, used to track and reference flights within the system.
+      - name: aircraft_code
+        description: Код типа воздушного судна
         data_type: character
       - name: actual_departure
         description: Фактическое время вылета
