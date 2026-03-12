@@ -9,7 +9,7 @@
 
     {# Формируем timestamp в нужном формате YYYY_MM_DD_HHMMSS #}
     {% set backup_suffix = run_started_at.strftime('%Y_%m_%d_%H%M%S') %}
-    {% set backup_identifier = this.identifier ~ '_backup_' ~ backup_suffix %}
+    {% set backup_identifier = this.identifier ~ '_' ~ backup_suffix %}
 
     {# Переименовываем только если таблица существует #}
     {% if old_relation is not none %}
@@ -26,6 +26,7 @@
     {% else %}
         {{ log("Table does not exist yet, skipping backup", info=true) }}
     {% endif %}
+    
 {% endmacro %}
 
         
