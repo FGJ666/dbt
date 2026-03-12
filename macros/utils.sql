@@ -32,7 +32,7 @@ SELECT NULL
 Приложить ссылки на github с кодом макроса и вызовом макроса.
 #}
 
-{% macro safe_select(table_name) %}
+{# {% macro safe_select(table_name) %}
     {{ log("Checking: DB=" ~ target.database ~ " Schema=" ~ target.schema ~ " Table=" ~ table_name, info=true) }}
     {% set model_relation = ref(table_name) %}
     
@@ -41,7 +41,7 @@ SELECT NULL
         schema=model_relation.schema,
         identifier=model_relation.identifier
     )%}
-    {{ log("Source Relation: " ~ relation, info=true) }}
+    {{ log("Source Relation: " ~ model_relation, info=true) }}
 
     {% if exists %}
         select * from {{model_relation}}
@@ -49,4 +49,29 @@ SELECT NULL
         SELECT NULL
     {% endif %}
 
+{% endmacro %} #}
+
+{# -----------Для произвольной схемы--------------- #} 
+
+{% macro safe_select(table_name) %}
+    {% set query = "
+        select 
+            table_schema,
+            table_name
+        from dwh_flight.INFORMATION_SCHEMA.TABLES
+        where table_name = '" ~ table_name ~ "'
+        limit 1
+        " 
+    %}
+
+    {% set result = run_query(query) %}
+
+    {% if result | length > 0 %}
+        {% set tables = result.columns['table_name'].values()[0] %}
+        {% set schemas = result.columns['table_schema'].values()[0] %}
+
+        select * from {{schemas}}.{{tables}}
+    {% else %}
+        SELECT NULL
+    {% endif %}
 {% endmacro %}
