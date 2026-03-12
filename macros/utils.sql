@@ -32,3 +32,21 @@ SELECT NULL
 Приложить ссылки на github с кодом макроса и вызовом макроса.
 #}
 
+{% macro safe_select(table_name) %}
+    {{ log("Checking: DB=" ~ target.database ~ " Schema=" ~ target.schema ~ " Table=" ~ table_name, info=true) }}
+    {% set model_relation = ref(table_name) %}
+    
+    {% set exists = adapter.get_relation(
+        database=model_relation.database,
+        schema=model_relation.schema,
+        identifier=model_relation.identifier
+    )%}
+    {{ log("Source Relation: " ~ relation, info=true) }}
+
+    {% if exists %}
+        select * from {{model_relation}}
+    {%else%}
+        SELECT NULL
+    {% endif %}
+
+{% endmacro %}
