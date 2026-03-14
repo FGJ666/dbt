@@ -26,4 +26,3 @@ from
         'demo_src',
         'aircrafts'
     ) }}
-    

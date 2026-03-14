@@ -5,7 +5,7 @@
 ) }}
 
 select
-    {{bookref_to_bigint('book_ref')}} as book_ref,
+    {{ bookref_to_bigint('book_ref') }} as book_ref,
     book_date,
     total_amount
 from

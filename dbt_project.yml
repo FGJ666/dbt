@@ -66,8 +66,8 @@ models:
   elementary:
     +tags: elementary
     +schema: elementary # Таблицы пакета будут созданы в схеме flights_elementary
-    vars:
-      should_upload_artifacts: true # Или false, если только self-hosted DB
+vars:
+  should_upload_artifacts: true # Или false, если только self-hosted DB
 
 # ====Конфигурирование seeds====
 seeds:
