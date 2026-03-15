@@ -12,4 +12,4 @@ from
     'demo_src',
     'bookings'
   ) }}
-{{limit_data_dev('book_date')}}
+{{ limit_data_dev('book_date') }}
