@@ -1,9 +1,7 @@
 select
     aircrafts.aircraft_code,
     aircrafts.model,
-    count(
-        distinct seats.seat_no
-    ) as seat_count
+    count(distinct seats.seat_no) as seat_count
 from
     {{ ref('stg_flights__seats') }} as seats
 inner join {{ ref('stg_flights__aircrafts') }} as aircrafts
