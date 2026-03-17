@@ -9,6 +9,9 @@ models:
               # timestamp_column: loaded_at
               column_anomalies: [null_count, missing_count, zero_count]
     columns:
+      - name: book_ref_key
+        description: Уникальный ключ для бронирования (12 символов).
+        data_type: character
       - name: book_ref
         description: Уникальный код бронирования (6 символов).
         data_type: character

@@ -4,6 +4,10 @@ models:
     description: >-
       Факт-таблица рейсов, содержащая информацию о каждом рейсе, включая запланированные и фактические
       времена вылета и прилета, а также статусы рейсов.
+    tests:
+      - dbt_utils.equal_rowcount:
+          arguments:
+            compare_model: ref('stg_flights__flights')
     columns:
       - name: flight_id
         description: Уникальный идентификатор рейса
