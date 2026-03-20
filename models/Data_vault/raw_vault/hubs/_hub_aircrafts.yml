@@ -1,0 +1,26 @@
+version: 2
+models:
+  - name: hub_aircrafts
+    columns:
+      - name: aircraft_hk
+        description: >-
+          The column "aircraft_hk" is a bytea type, which typically stands for "binary large object" in
+          SQL. It is used to store the three-letter code of the aircraft.
+        data_type: bytea
+      - name: aircraft_code
+        description: Трехсимвольный код модели самолета.
+        data_type: character
+      - name: load_datetime
+        description: >-
+          The load_datetime column stores the timestamp when the aircraft data was loaded into the "dwh_flight"."flights"."hub_aircrafts"
+          table. It is expressed as a timestamp with time zone, allowing for precise tracking of the load
+          time.
+        data_type: timestamp with time zone
+      - name: record_source
+        description: >-
+          The "record_source" column in the "dwh_flight"."flights"."hub_aircrafts" table identifies the
+          source of the record.
+        data_type: text
+    description: >-
+      The table "dwh_flight"."flights"."hub_aircrafts" contains information about aircraft in a hub, including
+      their three-letter code, full model name, and maximum flight range in kilometers.

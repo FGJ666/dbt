@@ -1,0 +1,44 @@
+version: 2
+models:
+  - name: v_stg_flights__aircrafts
+    columns:
+      - name: aircraft_code
+        description: Трехсимвольный код модели самолета.
+        data_type: character
+      - name: model
+        description: Полное наименование модели самолета (на английском).
+        data_type: text
+      - name: range
+        description: Максимальная дальность полета в километрах.
+        data_type: integer
+      - name: record_source
+        description: >-
+          The record_source column in the "dwh_flight"."flights"."v_stg_flights__aircrafts" table captures
+          the source from which the aircraft data was recorded.
+        data_type: text
+      - name: source
+        description: >-
+          The source column captures information about the source of the aircraft data, which can be useful
+          for tracking where the data comes from.
+        data_type: text
+      - name: load_datetime
+        description: >-
+          The load_datetime column represents the timestamp when the data was last loaded into the "dwh_flight"."flights"."v_stg_flights__aircrafts"
+          table. This timestamp ensures that the data reflects the most recent entry.
+        data_type: timestamp with time zone
+      - name: effective_from
+        description: >-
+          The column "effective_from" captures the date from which the aircraft becomes effective in the
+          flight schedule.
+        data_type: date
+      - name: aircraft_hk
+        description: The column "aircraft_hk" holds the three-letter code for the aircraft model.
+        data_type: bytea
+      - name: aircraft_hashdiff
+        description: >-
+          The column "aircraft_hashdiff" is of type bytea and represents the hash difference between the
+          aircraft's current and historical records.
+        data_type: bytea
+    description: >-
+      The table "dwh_flight"."flights"."v_stg_flights__aircrafts" captures information about various aircraft,
+      including their codes, models, ranges, record sources, and other attributes.
