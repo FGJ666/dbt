@@ -6,8 +6,8 @@ select
     aircraft_code,
     model,
     range,
-    'aircrafts' as RECORD_SOURCE,
-    now() as LOAD_DATETIME
+    'aircrafts' as record_source,
+    now() as load_datetime
 from
     {{ source(
         'demo_src',
