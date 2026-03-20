@@ -21,12 +21,12 @@ models:
       - name: scheduled_arrival
         description: Запланированное время прилета
         data_type: timestamp with time zone
-      - name: departure_airport_id
-        data_type: character
+      - name: departure_airport
         description: Код аэропорта вылета
-      - name: arrival_airport_id
         data_type: character
-        description: Код аэропорта прилета.
+      - name: arrival_airport
+        description: Код аэропорта прилета
+        data_type: character
       - name: status
         description: Статус рейса (запланирован, вылетел, прилетел и т.д.)
         data_type: character varying

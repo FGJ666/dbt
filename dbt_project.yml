@@ -93,3 +93,6 @@ snapshots:
       dbt_scd_id: scd_id
     +dbt_valid_to_current: "'9999-12-31'::date"
     +hard_deletes: invalidate
+
+# Подробный вывод в терминал
+# on-run-end: "{{ dbt_project_evaluator.print_dbt_project_evaluator_issues() }}"
