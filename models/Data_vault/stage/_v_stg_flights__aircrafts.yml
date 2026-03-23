@@ -13,8 +13,8 @@ models:
         data_type: integer
       - name: record_source
         description: >-
-          The record_source column in the "dwh_flight"."flights"."v_stg_flights__aircrafts" table captures
-          the source from which the aircraft data was recorded.
+          The record_source column in the "dwh_flight"."flights"."raw_aircrafts" table contains the source
+          system or platform from which the data was collected, such as "source.dbt_stepik.demo_src.aircrafts".
         data_type: text
       - name: source
         description: >-
@@ -23,8 +23,7 @@ models:
         data_type: text
       - name: load_datetime
         description: >-
-          The load_datetime column represents the timestamp when the data was last loaded into the "dwh_flight"."flights"."v_stg_flights__aircrafts"
-          table. This timestamp ensures that the data reflects the most recent entry.
+          The load_datetime column represents the timestamp of when the aircraft data was collected.
         data_type: timestamp with time zone
       - name: effective_from
         description: >-
