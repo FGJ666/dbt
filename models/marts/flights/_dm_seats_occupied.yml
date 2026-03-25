@@ -1,0 +1,70 @@
+version: 2
+models:
+  - name: dm_seats_occupied
+    columns:
+      - name: departure_airport_code
+        description: Код вылетающего аэропорта (IATA).
+        data_type: character
+      - name: departure_airport_name
+        description: Название вылетающего аэропорта.
+        data_type: text
+      - name: departure_airport_city
+        description: Город, в котором расположен вылетающий аэропорт.
+        data_type: text
+      - name: departure_airport_coordinates
+        description: Географические координаты вылетающего аэропорта.
+        data_type: point
+      - name: arrival_airport_code
+        description: Код прилетающего аэропорта (IATA).
+        data_type: character
+      - name: arrival_airport_name
+        description: Название прилетающего аэропорта.
+        data_type: text
+      - name: arrival_airport_city
+        description: Город, в котором расположен прилетающий аэропорт.
+        data_type: text
+      - name: arrival_airport_coordinates
+        description: Географические координаты прилетающего аэропорта.
+        data_type: point
+      - name: flight_status
+        description: Статус рейса (например, запланирован, вылетел, прибыл).
+        data_type: character varying
+      - name: aircraft_code
+        description: Трехсимвольный код модели самолета.
+        data_type: character
+      - name: aircraft_model
+        description: Название модели воздушного судна.
+        data_type: text
+      - name: scheduled_departure_date
+        description: Запланированная дата вылета рейса.
+        data_type: timestamp with time zone
+      - name: flight_no
+        description: Номер рейса (код авиакомпании + номер).
+        data_type: character
+      - name: flight_id
+        description: Уникальный идентификатор рейса.
+        data_type: integer
+      - name: Ticket_flights_purchased
+        description: Общее количество билетов, купленных на рейс.
+        data_type: integer
+      - name: Boarding_passes_issued
+        description: Количество оформленных посадочных билетов на рейс.
+        data_type: integer
+      - name: Ticket_flights_amount
+        description: Общая стоимость всех билетов на рейс.
+        data_type: numeric
+      - name: Ticket_flights_no_sold
+        description:
+          Количество не проданных билетов на рейс. Рассчитывается как разница между
+          `Ticket_flights_purchased` и `Boarding_passes_issued`.
+        data_type: integer
+
+    description: >-
+      Маршрутная модель (dim), агрегирующая данные о рейсах и продажах билетов на уровне аэропортов.
+      Модель объединяет информацию о вылетах и прилетах с метриками продаж билетов (покупки, 
+      оформление посадочных талонов, выручка, не проданные места). Используется для аналитики 
+      загруженности рейсов, анализа спроса и эффективности продаж авиабилетов.
+
+    meta:
+      layer: marts
+      business_area: flights

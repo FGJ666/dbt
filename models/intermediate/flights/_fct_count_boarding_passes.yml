@@ -1,0 +1,12 @@
+version: 2
+models:
+  - name: fct_count_boarding_passes
+    columns:
+      - name: flight_id
+        description: Идентификатор рейса
+        data_type: integer
+      - name: boarding_passes_count
+        description: >-
+          Count of boarding passes issued for each flight, based on records in the stage table `model.dbt_stepik.stg_flights__boarding_passes`.
+        data_type: bigint
+    description: Intermediate fact table summarizing the count of boarding passes for each flight.

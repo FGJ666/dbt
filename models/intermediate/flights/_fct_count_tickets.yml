@@ -1,0 +1,14 @@
+version: 2
+models:
+  - name: fct_count_tickets
+    columns:
+      - name: flight_id
+        description: Идентификатор рейса
+        data_type: integer
+      - name: count_tickets
+        description: >-
+          Total number of tickets sold for each flight, calculated from the `fct_ticket_flights` table.
+        data_type: bigint
+    description: >-
+      A table containing the count of tickets per flight, derived from the `flights_intermediate.fct_ticket_flights`
+      table. This includes the flight ID and the total number of tickets for each flight.

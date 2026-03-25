@@ -1,0 +1,15 @@
+version: 2
+models:
+  - name: fct_count_not_sold_tickets
+    columns:
+      - name: flight_id
+        description: Идентификатор рейса
+        data_type: integer
+      - name: not_sold_tickets
+        description: >-
+          Number of tickets not sold per flight, derived from the `flights_intermediate.fct_ticket_flights`
+          table.
+        data_type: numeric
+    description: >-
+      Count of tickets not sold per flight, derived from the `flights_intermediate.fct_ticket_flights`
+      table. Includes the flight ID and the number of unsold tickets for each flight.

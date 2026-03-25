@@ -1,0 +1,14 @@
+version: 2
+models:
+  - name: fct_sum_amount_tickets
+    columns:
+      - name: flight_id
+        description: Идентификатор рейса
+        data_type: integer
+      - name: sum_amount_tickets
+        description: '**Description:** Sum of ticket amounts sold for each flight.'
+        data_type: numeric
+    description: >-
+      The table "dwh_flight"."flights_intermediate"."fct_sum_amount_tickets" contains the sum of ticket
+      amounts for each flight. It includes the flight ID and the total amount of tickets sold for that
+      flight.

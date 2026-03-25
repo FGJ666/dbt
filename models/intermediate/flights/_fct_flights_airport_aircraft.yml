@@ -1,0 +1,47 @@
+version: 2
+models:
+  - name: fct_flights_airport_aircraft
+    columns:
+      - name: departure_airport_code
+        description: Code of the departure airport
+        data_type: character
+      - name: departure_airport_name
+        description: Name of the departure airport
+        data_type: text
+      - name: departure_airport_city
+        description: City where the departure airport is located
+        data_type: text
+      - name: departure_airport_coordinates
+        description: Geographical coordinates of the departure airport
+        data_type: point
+      - name: arrival_airport_code
+        description: Code of the arrival airport
+        data_type: character
+      - name: arrival_airport_name
+        description: Name of the arrival airport
+        data_type: text
+      - name: arrival_airport_city
+        description: City where the arrival airport is located
+        data_type: text
+      - name: arrival_airport_coordinates
+        description: Geographical coordinates of the arrival airport
+        data_type: point
+      - name: flight_status
+        description: Status of the flight (e.g., scheduled, departed, arrived)
+        data_type: character varying
+      - name: aircraft_code
+        description: Трехсимвольный код модели самолета.
+        data_type: character
+      - name: aircraft_model
+        description: Model name of the aircraft
+        data_type: text
+      - name: scheduled_departure_date
+        description: Scheduled departure date of the flight
+        data_type: timestamp with time zone
+      - name: flight_no
+        description: Номер рейса (код авиакомпании + номер)
+        data_type: character
+      - name: flight_id
+        description: Уникальный идентификатор рейса
+        data_type: integer
+    description: Flight details including airport and aircraft information
