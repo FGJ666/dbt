@@ -14,7 +14,7 @@ repos:
       # Проверка наличия описаний в моделях
       - id: check-model-has-description
         #{# args: ["--exclude", "snapshots/*"] #}
-        exclude: ^(analyses|snapshots)/
+        exclude: ^(analyses|snapshots|tests)/
       - id: check-script-semicolon
         exclude: ^analyses/
       # - id: check-model-has-all-columns

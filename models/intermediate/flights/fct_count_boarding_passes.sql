@@ -1,4 +1,3 @@
-
 select
     flight_id,
     count(ticket_no) as boarding_passes_count

@@ -3,67 +3,66 @@ models:
   - name: dm_seats_occupied
     columns:
       - name: departure_airport_code
-        description: Код вылетающего аэропорта (IATA).
+        description: Code of the departure airport
         data_type: character
       - name: departure_airport_name
-        description: Название вылетающего аэропорта.
+        description: Name of the departure airport
         data_type: text
       - name: departure_airport_city
-        description: Город, в котором расположен вылетающий аэропорт.
+        description: City where the departure airport is located
         data_type: text
       - name: departure_airport_coordinates
-        description: Географические координаты вылетающего аэропорта.
+        description: Geographical coordinates of the departure airport
         data_type: point
       - name: arrival_airport_code
-        description: Код прилетающего аэропорта (IATA).
+        description: Code of the arrival airport
         data_type: character
       - name: arrival_airport_name
-        description: Название прилетающего аэропорта.
+        description: Name of the arrival airport
         data_type: text
       - name: arrival_airport_city
-        description: Город, в котором расположен прилетающий аэропорт.
+        description: City where the arrival airport is located
         data_type: text
       - name: arrival_airport_coordinates
-        description: Географические координаты прилетающего аэропорта.
+        description: Geographical coordinates of the arrival airport
         data_type: point
       - name: flight_status
-        description: Статус рейса (например, запланирован, вылетел, прибыл).
+        description: Status of the flight (e.g., scheduled, departed, arrived)
         data_type: character varying
       - name: aircraft_code
         description: Трехсимвольный код модели самолета.
         data_type: character
       - name: aircraft_model
-        description: Название модели воздушного судна.
+        description: Model name of the aircraft
         data_type: text
       - name: scheduled_departure_date
-        description: Запланированная дата вылета рейса.
+        description: Scheduled departure date of the flight
         data_type: timestamp with time zone
       - name: flight_no
-        description: Номер рейса (код авиакомпании + номер).
+        description: Номер рейса (код авиакомпании + номер)
         data_type: character
       - name: flight_id
-        description: Уникальный идентификатор рейса.
+        description: Идентификатор рейса
         data_type: integer
-      - name: Ticket_flights_purchased
+      - name: ticket_flights_purchased
         description: Общее количество билетов, купленных на рейс.
         data_type: integer
-      - name: Boarding_passes_issued
+      - name: boarding_passes_issued
         description: Количество оформленных посадочных билетов на рейс.
         data_type: integer
-      - name: Ticket_flights_amount
+      - name: ticket_flights_amount
         description: Общая стоимость всех билетов на рейс.
         data_type: numeric
-      - name: Ticket_flights_no_sold
-        description:
-          Количество не проданных билетов на рейс. Рассчитывается как разница между
-          `Ticket_flights_purchased` и `Boarding_passes_issued`.
+      - name: ticket_flights_no_sold
+        description: >-
+          Количество не проданных билетов на рейс. Рассчитывается как разница между `Ticket_flights_purchased`
+          и `Boarding_passes_issued`.
         data_type: integer
-
     description: >-
       Маршрутная модель (dim), агрегирующая данные о рейсах и продажах билетов на уровне аэропортов.
-      Модель объединяет информацию о вылетах и прилетах с метриками продаж билетов (покупки, 
-      оформление посадочных талонов, выручка, не проданные места). Используется для аналитики 
-      загруженности рейсов, анализа спроса и эффективности продаж авиабилетов.
+      Модель объединяет информацию о вылетах и прилетах с метриками продаж билетов (покупки,  оформление
+      посадочных талонов, выручка, не проданные места). Используется для аналитики  загруженности рейсов,
+      анализа спроса и эффективности продаж авиабилетов.
 
     meta:
       layer: marts

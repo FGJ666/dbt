@@ -13,12 +13,12 @@ select
     scheduled_departure_date,
     flight_no,
     flight_id,
-    fct_count_tickets.count_tickets as Ticket_flights_purchased,
-    boarding_passes_count as Boarding_passes_issued,
-    sum_amount_tickets as Ticket_flights_amount,
-    not_sold_tickets as Ticket_flights_no_sold
+    fct_count_tickets.count_tickets as ticket_flights_purchased,
+    boarding_passes_count as boarding_passes_issued,
+    sum_amount_tickets as ticket_flights_amount,
+    not_sold_tickets as ticket_flights_no_sold
 from {{ ref('fct_flights_airport_aircraft') }}
-join {{ ref('fct_count_tickets') }} using (flight_id)
-join {{ ref('fct_count_boarding_passes') }} using(flight_id)
-join {{ ref('fct_sum_amount_tickets') }} using(flight_id)
-join {{ ref('fct_count_not_sold_tickets') }} using(flight_id)
+inner join {{ ref('fct_count_tickets') }} using (flight_id)
+inner join {{ ref('fct_count_boarding_passes') }} using (flight_id)
+inner join {{ ref('fct_sum_amount_tickets') }} using (flight_id)
+inner join {{ ref('fct_count_not_sold_tickets') }} using (flight_id)
