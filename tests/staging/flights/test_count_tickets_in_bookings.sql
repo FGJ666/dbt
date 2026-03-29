@@ -14,8 +14,7 @@
     
     )
 }}
-select
-    book_ref
+select book_ref
 from {{ ref('stg_flights__bookings') }}
 inner join {{ ref('stg_flights__tickets') }} using (book_ref)
 group by book_ref
