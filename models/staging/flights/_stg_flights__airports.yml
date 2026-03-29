@@ -14,7 +14,7 @@ models:
               config:
                 severity: warn
       - name: airport_name
-        description: Название аэропорта на английском языке.
+        description: Название аэропорта.
         data_type: text
       - name: city
         description: Город расположения аэропорта.
