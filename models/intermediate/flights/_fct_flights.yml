@@ -46,17 +46,46 @@ models:
         data_type: interval
       - name: load_date
         data_type: date
-        description: Дата загрузки данных в таблицу, указывающая на момент, когда строки были 
+        description:
+          Дата загрузки данных в таблицу, указывающая на момент, когда строки были
           добавлены.
 unit_tests:
+  # Оба поля заданы
   - name: arrival_greater_than_departure
     description: Если actual_arrival > actual_departure, то duration = их разность
+    model: fct_flights
+    given:
+      - input: ref('stg_flights__flights')
+        rows:
+          - {
+              actual_departure: "2017-07-07 06:00:00+00",
+              actual_arrival: "2017-07-07 07:00:00+00",
+            }
+    expect:
+      rows:
+        - { actual_duration_flight: 01:00:00 }
+
+    # actual_arrival null
+  - name: actual_arrival_is_null
+    description: Если actual_arrival is null, то duration = INTERVAL '0 seconds'
     model: fct_flights
 
     given:
       - input: ref('stg_flights__flights')
         rows:
-          - {actual_departure: '2017-07-07 06:00:00+00', actual_arrival: '2017-07-07 07:00:00+00'}
+          - { actual_departure: "2017-07-07 06:00:00+00", actual_arrival: null }
     expect:
       rows:
-        - {actual_duration_flight: 01:00:00}
+        - { actual_duration_flight: 00:00:00 }
+
+  # actual_departure null
+  - name: actual_departure_is_null
+    description: Если actual_departure is null, то duration = INTERVAL '0 seconds'
+    model: fct_flights
+    given:
+      - input: ref('stg_flights__flights')
+        rows:
+          - { actual_departure: null, actual_arrival: "2017-07-07 07:00:00+00" }
+    expect:
+      rows:
+        - { actual_duration_flight: 00:00:00 }
