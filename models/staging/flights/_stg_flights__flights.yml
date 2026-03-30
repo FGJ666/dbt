@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: stg_flights__flights
+
     columns:
       - name: flight_id
         description: Уникальный идентификатор рейса
@@ -36,3 +37,10 @@ models:
       The table "dwh_flight"."flights_staging"."stg_flights__flights" is used to store the real-time flights
       information, including flight ID, flight number, scheduled departure and arrival times, airport
       codes, status, aircraft type, and actual departure and arrival times.
+
+# {{ config(
+#   materialized = 'incremental',
+#   incremental_strategy = 'merge',
+#   uniq_key = ['flight_id'],
+#   tags = ['incremental', 'flights']
+# ) }}
