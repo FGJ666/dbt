@@ -48,3 +48,15 @@ models:
         data_type: date
         description: Дата загрузки данных в таблицу, указывающая на момент, когда строки были 
           добавлены.
+unit_tests:
+  - name: arrival_greater_than_departure
+    description: Если actual_arrival > actual_departure, то duration = их разность
+    model: fct_flights
+
+    given:
+      - input: ref('stg_flights__flights')
+        rows:
+          - {actual_departure: '2017-07-07 06:00:00+00', actual_arrival: '2017-07-07 07:00:00+00'}
+    expect:
+      rows:
+        - {actual_duration_flight: 01:00:00}
