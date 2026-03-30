@@ -11,10 +11,10 @@ models:
     columns:
       - name: book_ref_key
         description: Уникальный ключ для бронирования (12 символов).
-        data_type: character
+        data_type: text
       - name: book_ref
         description: Уникальный код бронирования (6 символов).
-        data_type: character
+        data_type: character varying
         constraints:
           - type: not_null
             warn_unenforced: true
@@ -25,7 +25,7 @@ models:
         data_type: timestamp with time zone
       - name: total_amount
         description: Общая стоимость бронирования (numeric).
-        data_type: numeric(10, 2)
+        data_type: numeric
         constraints:
           - type: check
             expression: total_amount > 0

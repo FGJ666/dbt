@@ -1,4 +1,4 @@
-select 
+select
     min(coordinates[0]),
     min(coordinates[1]),
     max(coordinates[0]),
