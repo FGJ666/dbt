@@ -1,7 +1,13 @@
 version: 2
 models:
   - name: stg_flights__flights
-
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+      uniq_key: flight_id
+      tags:
+        - incremental
+        - flights
     columns:
       - name: flight_id
         description: Уникальный идентификатор рейса
@@ -38,9 +44,81 @@ models:
       information, including flight ID, flight number, scheduled departure and arrival times, airport
       codes, status, aircraft type, and actual departure and arrival times.
 
-# {{ config(
-#   materialized = 'incremental',
-#   incremental_strategy = 'merge',
-#   uniq_key = ['flight_id'],
-#   tags = ['incremental', 'flights']
-# ) }}
+# 2. Напишите юнит тесты для проверки алгоритма инкрементального обновления модели stg_flights__flights:
+
+# а. В stg_flights__flights уже есть строка с перелетом с запланированной датой вылета 01.01.2025.
+# И приходит новая строка с другим перелетом с запланированной датой вылета 15.12.2024.
+# Новая строка с перелетом должна быть добавлена в модели при инкрементальном обновлении.
+
+# б. В stg_flights__flights уже есть строка с перелетом с запланированной датой вылета 01.01.2025.
+# И приходит новая строка с другим перелетом с запланированной датой вылета 01.09.2024.
+# Новая строка с перелетом не должна быть добавлена в модели при инкрементальном обновлении.
+
+# в. В stg_flights__flights уже есть строка с перелетом с запланированной датой вылета 01.01.2025.
+# И приходит новая строка с этим же перелетом (с тем же значением flight_id) с другим значением поля status.
+# Новая строка с обновленным статусом должна попасть в результат.
+
+unit_tests:
+  # TEST 1
+  - name: is_correct_incremental_update
+    description: "Корректность добавления новой строки в инкрементальную модель"
+    model: stg_flights__flights
+    overrides:
+      macros:
+        is_incremental: true
+    given:
+      - input: source('demo_src', 'flights')
+        rows:
+          - { flight_id: 100, scheduled_departure: "2024-12-16" }
+      - input: this
+        rows:
+          - { flight_id: 101, scheduled_departure: "2025-01-01" }
+          - { flight_id: 100, scheduled_departure: "2024-12-15" }
+    expect:
+      rows:
+        - { flight_id: 100, scheduled_departure: "2024-12-16" }
+    # TEST 2
+  - name: skip_too_old_flight
+    description: "Строка со старой датой не должна добавится в модель"
+    model: stg_flights__flights
+    overrides:
+      macros:
+        is_incremental: true
+    given:
+      - input: source('demo_src', 'flights')
+        rows:
+          - { flight_id: 100, scheduled_departure: "2024-09-01" }
+      - input: this
+        rows:
+          - { flight_id: 101, scheduled_departure: "2025-01-01" }
+    expect:
+      rows: []
+    # TEST 3
+  - name: is_correct_incremental_update
+    description: "Корректность добавления новой строки в инкрементальную модель"
+    model: stg_flights__flights
+    overrides:
+      macros:
+        is_incremental: true
+    given:
+      - input: source('demo_src', 'flights')
+        rows:
+          - {
+              flight_id: 101,
+              scheduled_departure: "2025-01-01",
+              status: "Arrived",
+            }
+      - input: this
+        rows:
+          - {
+              flight_id: 101,
+              scheduled_departure: "2025-01-01",
+              status: "Scheduled",
+            }
+    expect:
+      rows:
+        - {
+            flight_id: 101,
+            scheduled_departure: "2025-01-01",
+            status: "Arrived",
+          }

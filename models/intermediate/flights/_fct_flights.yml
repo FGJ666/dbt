@@ -5,7 +5,7 @@ models:
       Факт-таблица рейсов, содержащая информацию о каждом рейсе, включая запланированные и фактические
       времена вылета и прилета, а также статусы рейсов.
 
-    tests:
+    data_tests:
       - dbt_utils.equal_rowcount:
           arguments:
             compare_model: ref('stg_flights__flights')
