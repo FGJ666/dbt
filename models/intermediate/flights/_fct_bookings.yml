@@ -6,8 +6,8 @@ models:
     tests:
       - elementary.all_columns_anomalies:
           arguments:
-              # timestamp_column: loaded_at
-              column_anomalies: [null_count, missing_count, zero_count]
+            # timestamp_column: loaded_at
+            column_anomalies: [null_count, missing_count, zero_count]
     columns:
       - name: book_ref_key
         description: Уникальный ключ для бронирования (12 символов).
@@ -32,32 +32,3 @@ models:
             warn_unenforced: true
             warn_unsupported: false
             to_columns: []
-
-    # config:
-    latest_version: 2
-    docs:
-      show: true
-      node_color: red
-    deprecation_date: 2200-01-01 00:00
-    access: public
-    config:
-      contract: { enforced: true }
-    meta:
-      owner: my_email@gmail.com
-      tg: my_tg
-
-    # versions:
-    versions:
-      - v: 2
-        defined_in: fct_bookings_v2
-        columns:
-          - include: "all"
-          - name: loaded_at
-            data_type: date
-            description: Дата загрузки данных.
-
-      - v: 1
-        defined_in: fct_bookings
-        deprecation_date: 2026-12-31
-        columns:
-          - include: "all"
