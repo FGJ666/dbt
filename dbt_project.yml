@@ -43,7 +43,7 @@ models:
     # === staging ===
     staging:
       +schema: staging
-      +materialized: view
+      +materialized: table
       +tags: staging
       # +dbt-osmosis: "{parent}.yml"
       +dbt-osmosis-options:
@@ -53,14 +53,14 @@ models:
     # === INTERMEDIATE ===
     intermediate:
       +schema: intermediate
-      +materialized: view
+      +materialized: table
       +tags: intermediate
       # +dbt-osmosis: "{node.resource_type}__{model}.yml"
 
     # === marts ===
     marts:
       +schema: marts
-      +materialized: view
+      +materialized: table
       +tags: marts
       # +dbt-osmosis: "{parent}.yml"
 
