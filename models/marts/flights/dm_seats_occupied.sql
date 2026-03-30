@@ -13,7 +13,7 @@ select
     scheduled_departure_date,
     flight_no,
     flight_id,
-    fct_count_tickets.count_tickets as ticket_flights_purchased,
+    count_tickets as ticket_flights_purchased,
     boarding_passes_count as boarding_passes_issued,
     sum_amount_tickets as ticket_flights_amount,
     not_sold_tickets as ticket_flights_no_sold
