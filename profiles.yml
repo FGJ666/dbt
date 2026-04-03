@@ -1,0 +1,38 @@
+dbt_course:
+  outputs:
+    dev:
+      dbname: dbt_course
+      host: localhost
+      pass: "{{ env_var('DBT_ENV_SECRET_PASSWORD') }}"
+      port: 4001
+      schema: intermediate
+      threads: 8
+      type: postgres
+      user: postgres
+  target: dev
+# ------------------------------
+dbt_stepik:
+  outputs:
+    dev:
+      dbname: dwh_flight
+      host: localhost
+      pass: "{{ env_var('DBT_ENV_SECRET_PASSWORD') }}"
+      port: 4001
+      schema: flights
+      threads: 8
+      type: postgres
+      user: postgres
+  target: dev
+# ===НАСТРОЙКИ ДЛЯ ELEMENTARY===
+elementary:
+  outputs:
+    default:
+      type: "postgres"
+      host: "localhost"
+      port: 4001
+      user: "postgres"
+      threads: 8
+      password: "{{ env_var('DBT_ENV_SECRET_PASSWORD') }}"
+      dbname: "dwh_flight"
+      schema: "flights_elementary"
+  target: default

@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "dagster-dbt>=0.28.22",
     "dbt-core>=1.11.5",
     "dbt-osmosis>=1.2.2",
     "dbt-postgres>=1.10.0",
