@@ -1,4 +1,4 @@
-# 🛫 dbt_stepik — Data Warehouse авиакомпании
+# 🛫 Data Warehouse авиакомпании
 
 [![dbt](https://img.shields.io/badge/dbt-1.8+-FF6849?style=flat-square)](https://www.getdbt.com/)
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat-square)](https://www.python.org/)
