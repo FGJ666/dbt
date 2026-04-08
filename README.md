@@ -4,7 +4,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat-square)](https://www.python.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13+-336791?style=flat-square)](https://www.postgresql.org/)
 
-**Образовательный проект** на основе курса Stepik, демонстрирующий применение современного подхода **Data Vault 2.0** для построения масштабируемого хранилища данных авиакомпании.
+**Образовательный проект**, демонстрирующий применение современного для построения масштабируемого хранилища данных авиакомпании.
 
 ## 📋 Оглавление
 
